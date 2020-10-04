@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SET_CURRENT_ANSWER, SET_ERROR } from "../reducers/types";
+import { SET_CURRENT_ANSWER, SET_ERRORS } from "../reducers/types";
 
 function Answer({ letter, answer, selected, dispatch }) {
   let classes = ["answer__button"];
@@ -11,7 +11,7 @@ function Answer({ letter, answer, selected, dispatch }) {
 
   const handleClick = (answer) => {
     dispatch({ type: SET_CURRENT_ANSWER, currentAnswer: answer });
-    dispatch({ type: SET_ERROR, error: "" });
+    dispatch({ type: SET_ERRORS, errors: {} });
   };
 
   return (
