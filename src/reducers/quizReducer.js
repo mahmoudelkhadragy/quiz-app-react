@@ -3,18 +3,24 @@ import {
   SET_CURRENT_ANSWER,
   SET_CURRENT_QUESTION,
   SET_ANSWERS,
-  SET_ERROR,
+  SET_ERRORS,
   RESET_QUIZ,
   SET_SHOW_RESULTS,
+  SET_USERNAME,
+  SET_QUESTIONS_NUMBERS,
+  SET_ENTER_GAME,
 } from "../reducers/types";
 
 export const initialState = {
+  userName: "",
   questions,
   currentQuestion: 0,
   currentAnswer: "",
   answers: [],
   showResults: false,
-  error: "",
+  enterGame: false,
+  questionsNumber: 5,
+  errors: {},
 };
 
 export function quizReducer(state, action) {
@@ -34,15 +40,30 @@ export function quizReducer(state, action) {
         ...state,
         answers: action.answers,
       };
-    case SET_ERROR:
+    case SET_ERRORS:
       return {
         ...state,
-        error: action.error,
+        errors: action.errors,
       };
     case SET_SHOW_RESULTS:
       return {
         ...state,
         showResults: action.showResults,
+      };
+    case SET_USERNAME:
+      return {
+        ...state,
+        userName: action.userName,
+      };
+    case SET_QUESTIONS_NUMBERS:
+      return {
+        ...state,
+        questionsNumber: action.questionsNumber,
+      };
+    case SET_ENTER_GAME:
+      return {
+        ...state,
+        enterGame: action.enterGame,
       };
     case RESET_QUIZ:
       return {
